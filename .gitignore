@@ -1,3 +1,9 @@
 venv/
 speech_commands_v0.02.tar.gz
 .idea/
+data/
+speech_commands_v0.01.tar.gz
+data1/
+KWS_transformer/
+logs/
+__pycache__/

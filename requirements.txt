@@ -1,0 +1,6 @@
+tensorflow
+tensorflow_addons
+numpy
+librosa
+audiomentations
+tqdm

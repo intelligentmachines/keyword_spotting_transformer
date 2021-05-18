@@ -7,6 +7,11 @@ import tensorflow_addons as tfa
 
 
 def main(args):
+    """
+    Main function to train the model
+    :param args:
+    :return: saved model directory
+    """
     data_dir = args.data_dir
     train_ds, test_ds, val_ds, commands = collect_data(batch_size=args.batch_size, data_dir=data_dir)
     print("train_ds, test_ds, val_ds uploaded")
@@ -37,7 +42,9 @@ def main(args):
             validation_data=val_ds,
             callbacks=[tensorboard_callback]
         )
-    model.save("KWS_transformer_model")
+    model.save(args.save_dir)
+    loss, accuracy = model.evaluate(test_ds)
+    print(f"Test loss: {loss}, Test Accuracy:{accuracy}")
 
 
 if __name__ == "__main__":
@@ -52,6 +59,7 @@ if __name__ == "__main__":
     parser.add_argument("--weight_decay", default=1e-4, type=float)
     parser.add_argument("--batch_size", default=64, type=int)
     parser.add_argument("--epochs", default=200, type=int)
+    parser.add_argument("--save_dir", default="KWS_transformer")
     args = parser.parse_args()
 
     main(args)

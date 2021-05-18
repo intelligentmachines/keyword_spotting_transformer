@@ -8,6 +8,9 @@ import tensorflow_addons as tfa
 
 
 class MultiHeadSelfAttention(tf.keras.layers.Layer):
+    """
+    Class for Multi Head Self Attention layer
+    """
     def __init__(self, embed_dim, num_heads=8):
         super(MultiHeadSelfAttention, self).__init__()
         self.embed_dim = embed_dim
@@ -55,6 +58,9 @@ class MultiHeadSelfAttention(tf.keras.layers.Layer):
 
 
 class TransformerBlock(tf.keras.layers.Layer):
+    """
+    Prenorm transformer block of  KWS streaming layer.
+    """
     def __init__(self, embed_dim, num_heads, mlp_dim, dropout=0.1):
         super(TransformerBlock, self).__init__()
         self.att = MultiHeadSelfAttention(embed_dim, num_heads)
@@ -87,6 +93,9 @@ class TransformerBlock(tf.keras.layers.Layer):
 
 
 class KWS_transformer(tf.keras.Model):
+    """
+    Model architecture of main Key Word Spotting model
+    """
     def __init__(self, image_size, patch_size, num_layers, num_classes, d_model, num_heads, mlp_dim, channels=1,
                  dropout=0.1, ):
         super(KWS_transformer, self).__init__()
