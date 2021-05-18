@@ -1,6 +1,8 @@
 # Keyword Spotting Transformer
 This is the unofficial TensorFlow  implementation of the Keyword Spotting Transformer model. This model is used to train on the 35 words speech command dataset
 
+Paper : [Keyword Transformer: A Self-Attention Model for Keyword Spotting](https://arxiv.org/pdf/2104.00769v2.pdf)
+
 ## Model architecture
 ![alt text](https://github.com/Ahmad-Omar-Ahsan/keyword_spotting_transformer/blob/main/KWS_transformer.png)
 
